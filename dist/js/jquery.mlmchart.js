@@ -112,6 +112,7 @@
 
     // append the export button
     if (opts.exportButton && !$chartContainer.find('.oc-export-btn').length) {
+      var ExportBtns = $('#exportBtns');
       var $exportBtn = $('<button>', {
         'class': 'btn btn-primary oc-export-btn' + (opts.chartClass !== '' ? ' ' + opts.chartClass : ''),
         'text': opts.exportButtonText,
@@ -127,27 +128,29 @@
           }
           var sourceChart = $chartContainer.addClass('canvasContainer').find('.orgchart:visible').get(0);
           var flag = opts.direction === 'l2r' || opts.direction === 'r2l';
+          console.log(html2canvas);
           html2canvas(sourceChart, {
-              'width': flag ? sourceChart.clientHeight : sourceChart.clientWidth,
-              'height': flag ? sourceChart.clientWidth : sourceChart.clientHeight,
-              'onclone': function(cloneDoc) {
-                $(cloneDoc).find('.canvasContainer').css('overflow', 'visible')
-                  .find('.orgchart:visible:first').css('transform', '');
-              },
-              'onrendered': function(canvas) {
-                $chartContainer.find('.mask').addClass('hidden')
-                  .end().find('.oc-download-btn').attr('href', canvas.toDataURL())[0].click();
-              }
-            })
-            .then(function() {
-              $chartContainer.removeClass('canvasContainer');
-            }, function() {
-              $chartContainer.removeClass('canvasContainer');
-            });
+            'width': flag ? sourceChart.clientHeight : sourceChart.clientWidth,
+            'height': flag ? sourceChart.clientWidth : sourceChart.clientHeight,
+            'onclone': function(cloneDoc) {
+              $(cloneDoc).find('.canvasContainer').css('overflow', 'visible')
+                .find('.orgchart:visible:first').css('transform', '');
+            },
+            'onrendered': function(canvas) {
+              $chartContainer.find('.mask').addClass('hidden');
+              ExportBtns.find('.oc-download-btn').attr('href', canvas.toDataURL())[0].click();
+            }
+          }).then(function() {
+            $chartContainer.removeClass('canvasContainer');
+          }, function() {
+            $chartContainer.removeClass('canvasContainer');
+          });
         }
       });
       var downloadBtn = '<a class="oc-download-btn' + (opts.chartClass !== '' ? ' ' + opts.chartClass : '') + '"' + ' download="' + opts.exportFilename + '.png"></a>';
-      var ExportBtns = $('#exportBtns');
+
+      var downloadIcon = '<i class="fa fa-download"></i>';
+      $exportBtn.append(downloadIcon);
       ExportBtns.append($exportBtn).append(downloadBtn);
     }
 
