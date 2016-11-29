@@ -6,7 +6,10 @@
     "mick-cs <sunwei52208@gmail.com>"
   ],
   "description": "Multi-level marketing Chart",
-  "main": "dist/js/jquery.mlmchart.js,dist/css/jquery.mlmchart.css",
+  "main": [
+    "dist/js/jquery.mlmchart.js",
+    "dist/css/jquery.mlmchart.css"
+  ],
   "keywords": [
     "chart"
   ],
