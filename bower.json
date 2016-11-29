@@ -1,0 +1,26 @@
+{
+  "name": "mlmchart",
+  "homepage": "https://github.com/mick-cs/mlmchart",
+  "authors": [
+    "mick-cs <sunwei52208@gmail.com>"
+  ],
+  "description": "Multi-level marketing Chart",
+  "main": "dist/js/jquery.mlmchart.js,dist/css/jquery.mlmchart.css",
+  "keywords": [
+    "chart"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "font-awesome": "^4.6.2",
+    "html2canvas": "^0.4.1"
+  },
+  "private": true
+}
