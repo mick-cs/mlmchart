@@ -400,38 +400,11 @@
 }
 
 .oc-export-btn {
-  display: inline-block;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  color: #fff;
-  background-color: #5cb85c;
-  border: 1px solid transparent;
-  border-color: #4cae4c;
-  border-radius: 4px;
+
 }
 
 .oc-export-btn[disabled] {
-  cursor: not-allowed;
-  filter: alpha(opacity=30);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  opacity: 0.3;
+
 }
 
 .oc-export-btn:hover,.oc-export-btn:focus,.oc-export-btn:active  {
